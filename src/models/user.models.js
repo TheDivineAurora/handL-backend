@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const USER_ROLE = require('../enums/userRoles.enums');
 
 const UserSchema = new mongoose.Schema({
 
@@ -43,6 +44,14 @@ const UserSchema = new mongoose.Schema({
             return /^[a-zA-Z0-9]+$/.test(value);
         },
         message: 'Username must contain only alphabets and numbers',
+    },
+    profileImage: {
+        type: String,
+        default: "",
+    },
+    socialLinks: {
+        youtube: String,
+        twitter: String,
     }
 
 
